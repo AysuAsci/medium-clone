@@ -36,18 +36,21 @@ export default function LoginPage() {
     <button className="provider-button">Sign in with Apple</button>
     <button className="provider-button">Sign in with X</button>
     
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
-        <input id="email" name="email" type="email" required />
+    <form onSubmit={handleSubmit}>
+       <label htmlFor="email">Email:</label>
+       <input id="email" name="email" type="email" required />
         
-        <label htmlFor="password">Password:</label>
-        <input id="password" name="password" type="password" required />
+       <label htmlFor="password">Password:</label>
+       <input id="password" name="password" type="password" required />
         
         <button type="submit" name="login">Log in</button>
         <button type="submit" name="signup">Sign up</button>
       </form>
 
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Hata mesajını göster */}
+
+      <p>Forgot email or trouble signing in? Get help.</p>
+      <p>Click “Sign in” to agree to Medium’s Terms of Service and acknowledge that Medium’s Privacy Policy applies to you.</p>
     </div>
   );
 }
