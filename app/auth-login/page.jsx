@@ -29,7 +29,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
+    <div className="login-container">
+    <h1>Welcome back.</h1>
+    <button className="provider-button">Sign in with Google</button>
+    <button className="provider-button">Sign in with Facebook</button>
+    <button className="provider-button">Sign in with Apple</button>
+    <button className="provider-button">Sign in with X</button>
+    
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
         <input id="email" name="email" type="email" required />
