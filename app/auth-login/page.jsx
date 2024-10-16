@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import { login, signup } from './action';
-import './aut-login.css'; 
+import './auth-login.css'; 
 
 
 export default function LoginPage() {
   const [errorMessage, setErrorMessage] = useState('');
+  const [isSignUp, setIsSignUp] = useState(false); // Kayıt olma durumunu takip et
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,29 +29,54 @@ export default function LoginPage() {
     }
   };
 
+  const toggleSignUp = () => {
+    setIsSignUp(!isSignUp); // Kayıt olma formunu aç/kapat
+  };
+
   return (
     <div className="login-container">
-    <h1>Welcome back.</h1>
-    <button className="provider-button">Sign in with Google</button>
-    <button className="provider-button">Sign in with Facebook</button>
-    <button className="provider-button">Sign in with Apple</button>
-    <button className="provider-button">Sign in with X</button>
-    
-    <form onSubmit={handleSubmit}>
-       <label htmlFor="email">Email:</label>
-       <input id="email" name="email" type="email" required />
-        
-       <label htmlFor="password">Password:</label>
-       <input id="password" name="password" type="password" required />
-        
-        <button type="submit" name="login">Log in</button>
-        <button type="submit" name="signup">Sign up</button>
-      </form>
+      {isSignUp ? (
+        <>
+          <h1>Join Medium</h1>
+          <button className="provider-button">Sign up with Google</button>
+          <button className="provider-button">Sign up with Facebook</button>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email:</label>
+            <input id="email" name="email" type="email" required />
 
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Hata mesajını göster */}
+            <label htmlFor="password">Password:</label>
+            <input id="password" name="password" type="password" required />
 
-      <p>Forgot email or trouble signing in? Get help.</p>
-      <p>Click “Sign in” to agree to Medium’s Terms of Service and acknowledge that Medium’s Privacy Policy applies to you.</p>
+            <button type="submit" name="signup">Sign up</button>
+            <p>
+              Already have an account? <button type="button" onClick={toggleSignUp} className="create-account-button">Sign in</button>
+            </p>
+          </form>
+        </>
+      ) : (
+        <>
+          <h1>Welcome back.</h1>
+          <button className="provider-button">Sign in with Google</button>
+          <button className="provider-button">Sign in with Facebook</button>
+          <button className="provider-button">Sign in with Apple</button>
+          <button className="provider-button">Sign in with X</button>
+          
+          <form onSubmit={handleSubmit}>
+
+            <label htmlFor="email">Email:</label>
+            <input id="email" name="email" type="email" required />
+
+            <label htmlFor="password">Password:</label>
+            <input id="password" name="password" type="password" required />
+
+            <button type="submit" name="login">Log in</button>
+            <p>
+              No account? <button type="button" onClick={toggleSignUp} className="create-account-button">Create one</button>
+            </p>
+          </form>
+        </>
+      )}
+      {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Hata mesajını göster */}
     </div>
   );
 }

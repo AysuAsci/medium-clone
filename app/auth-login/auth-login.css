@@ -20,15 +20,15 @@ h1 {
   padding: 10px;
   margin: 10px 0;
   border: none;
-  border-radius: 5px;
-  color: #fff;
-  background-color: #4285F4; /* Google rengi */
+  border-radius: 25px; /* Oval görünüm için */
+  color: #4285F4; /* Google mavi rengi */
+  background-color: #fff; /* Beyaz arka plan */
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s; /* Arka plan ve metin rengi geçişi */
 }
 
 .provider-button:hover {
-  background-color: #357ae8; /* Hover rengi */
+  background-color: #e1e1e1; /* Hover rengi */
 }
 
 form {
@@ -66,5 +66,4 @@ button[type="submit"]:hover {
 
 .error-message {
   color: red;
-  margin-top: 10px;
 }
