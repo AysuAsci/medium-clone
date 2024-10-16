@@ -1,4 +1,4 @@
-import SingOut from "@/app/login/action";
+import SingOut from "@/app/auth-login/action";
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 
