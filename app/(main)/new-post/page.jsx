@@ -1,3 +1,5 @@
+"use client" ;
+
 import { useState } from "react";
 import { SavePost } from "./action"; // action.js dosyasından SavePost fonksiyonunu import et
 import "./new-post.css"; // CSS dosyasını import et
