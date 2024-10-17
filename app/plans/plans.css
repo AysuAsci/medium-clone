@@ -1,0 +1,96 @@
+.plans-container {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.plans-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.plan-option {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 45%;
+  text-align: left;
+}
+
+.plan-option h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.plan-details h4 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.plan-details p {
+  font-size: 16px;
+}
+
+.plan-option ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.plan-option ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.checkmark {
+  color: #28a745;
+  margin-right: 8px;
+}
+
+.select-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.select-button:hover {
+  background-color: #218838;
+}
+
+.save-amount {
+  font-size: 18px;
+  color: #ff6347;
+  margin-top: 20px;
+}
+
+.free-account {
+  margin-top: 40px;
+}
+
+.free-link {
+  color: #0e0f0e;
+  cursor: pointer;
+}
+
+.free-link:hover {
+  text-decoration: underline;
+}
