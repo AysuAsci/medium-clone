@@ -1,15 +1,15 @@
-"use client";
+"use client"; // Burası önemli
+
 import { useEffect, useState } from "react";
-import { createClient } from "@/utils/supabase/client"; // İstemciyi içe aktar
-import { useRouter } from "next/navigation"; // Router'ı import et
+import { createClient } from "@/utils/supabase/client"; // Supabase istemcisini import et
+import { useRouter } from "next/navigation"; // next/navigation kullan
 import "./[id].css"; // CSS dosyasını import et
 
-const supabase = createClient(); // İstemciyi oluştur
-
-export default function Post() {
+export default function PostLayout({ children }) {
   const [post, setPost] = useState(null);
   const router = useRouter();
-  const { id } = router.query;
+  const { id } = router; // Burada params içinden id alıyoruz
+  const supabase = createClient(); // Supabase istemcisini oluştur
 
   useEffect(() => {
     if (id) fetchPost();
@@ -17,7 +17,7 @@ export default function Post() {
 
   const fetchPost = async () => {
     const { data, error } = await supabase
-      .from("posts")
+      .from("posts") // Burada "articles" yerine "posts" kullanmalısınız.
       .select("*")
       .eq("id", id)
       .single();
@@ -36,8 +36,9 @@ export default function Post() {
       <h1>{post.title}</h1>
       <p>{post.content}</p>
       <div className="post-info">
-        <span>Likes: {post.likes || 0} • Comments: {post.comments || 0}</span>
+        <span>Likes: {post.likes} • Comments: {post.comments}</span>
       </div>
+      {children}
     </div>
   );
 }

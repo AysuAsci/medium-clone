@@ -1,46 +1,40 @@
-"use client" ;
+"use client";
+import { useState } from 'react';
+import { createClient } from '../../../utils/supabase/client'; // İstemciyi içe aktar
 
-import { useState } from "react";
-import { SavePost } from "./action"; // action.js dosyasından SavePost fonksiyonunu import et
-import "./new-post.css"; // CSS dosyasını import et
+const supabase = createClient(); // İstemciyi oluştur
 
-export default function NewPost() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("title", title);
-    formData.append("content", content);
-    
-    // SavePost fonksiyonunu çağır
-    await SavePost(formData);
-    
-    // Formu sıfırla
-    setTitle("");
-    setContent("");
+const NewPostPage = () => {
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+
+  const handlePublish = () => {
+      // Burada yazıyı yayınlama işlemi yapılacak.
+      console.log("Title:", title);
+      console.log("Body:", body);
   };
 
   return (
-    <div className="new-post-form">
-      <h2>Create a New Post</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <textarea
-          placeholder="Content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          required
-        ></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+      <div className="new-post-container">
+          <input 
+              type="text" 
+              className="new-post-title" 
+              placeholder="Title" 
+              value={title} 
+              onChange={(e) => setTitle(e.target.value)} 
+          />
+          <textarea 
+              className="new-post-body" 
+              placeholder="Tell your story..." 
+              value={body} 
+              onChange={(e) => setBody(e.target.value)} 
+          />
+          <button className="publish-button" onClick={handlePublish}>
+              Publish
+          </button>
+      </div>
   );
-}
+};
+
+export default NewPostPage;
