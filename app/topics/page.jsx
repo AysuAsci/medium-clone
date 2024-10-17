@@ -30,7 +30,6 @@ export default function TopicsPage() {
   return (
     <div className="topics-container">
       <h1>Medium</h1>
-      <h2>What are you interested in?</h2>
       <p>Choose three or more.</p>
 
       <div className="topics-grid">

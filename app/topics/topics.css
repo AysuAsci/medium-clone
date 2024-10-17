@@ -1,0 +1,82 @@
+.topics-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.topic-item {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative;
+}
+
+.topic-item:hover {
+  background-color: #f0f0f0;
+}
+
+.topic-item.selected {
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #28a745; /* Seçildiğinde yeşil kenar */
+}
+
+.plus-sign {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: #007bff;
+}
+
+.topic-item.selected .plus-sign {
+  color: #28a745; /* Yeşil tik */
+  content: '✔';  /* Artı yerine tik işareti */
+}
+
+.continue-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.continue-button:hover {
+  background-color: #333;
+}
+
+.continue-button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
