@@ -1,4 +1,3 @@
-
 .login-container {
   max-width: 400px;
   margin: 0 auto;
@@ -29,6 +28,19 @@ h1 {
 
 .provider-button:hover {
   background-color: #e1e1e1; /* Hover rengi */
+}
+
+.create-account-button {
+  background-color: green; /* Yeşil arka plan */
+  color: white; /* Beyaz yazı rengi */
+  border: none; /* Kenarlık yok */
+  border-radius: 20px; /* Oval görünüm için */
+  padding: 5px 10px; /* Dışarıda boşluk */
+  cursor: pointer; /* İmleç gösterimi */
+}
+
+.create-account-button:hover {
+  background-color: #005700; /* Hover rengi */
 }
 
 form {
@@ -66,4 +78,5 @@ button[type="submit"]:hover {
 
 .error-message {
   color: red;
+  margin-top: 10px;
 }
