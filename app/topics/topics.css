@@ -42,7 +42,7 @@ p {
 }
 
 .topic-item.selected {
-  background-color: #007bff;
+  background-color: #bcc6d0;
   color: white;
   border: 1px solid #28a745; /* Seçildiğinde yeşil kenar */
 }
@@ -52,7 +52,7 @@ p {
   top: 10px;
   right: 10px;
   font-size: 18px;
-  color: #007bff;
+  color: #bcc6d0;
 }
 
 .topic-item.selected .plus-sign {
