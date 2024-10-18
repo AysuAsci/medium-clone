@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { createClient } from "@/utils/supabase/client"; 
 import { useRouter } from "next/navigation"; 
-import "./home.css"; // CSS dosyasını import et
+import "./home.css"; // Ana sayfa için CSS
 
 const supabase = createClient(); 
 
