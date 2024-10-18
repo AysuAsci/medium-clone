@@ -1,0 +1,84 @@
+.home-container {
+  font-family: 'Georgia', serif;
+  color: #333;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  font-size: 16px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+}
+
+.get-started-button {
+  padding: 8px 16px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+}
+
+.main-content {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.main-content h1 {
+  font-size: 64px;
+  margin-bottom: 20px;
+}
+
+.main-content p {
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.start-reading-button {
+  padding: 12px 24px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.footer {
+  padding: 20px 40px;
+  background-color: #f9f9f9;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #333;
+}
