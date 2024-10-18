@@ -1,44 +1,49 @@
-"use client"; // Burası önemli
-
+"use client"; // Burası önemli 
 import { useEffect, useState } from "react";
-import { createClient } from "@/utils/supabase/client"; // Supabase istemcisini import et
-import { useRouter } from "next/navigation"; // next/navigation kullan
+import { createClient } from "@/utils/supabase/client";
+import { useRouter } from "next/navigation";
 import "./[id].css"; // CSS dosyasını import et
 
 export default function PostLayout({ children }) {
-  const [post, setPost] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar açılıp kapanması için state
   const router = useRouter();
-  const { id } = router; // Burada params içinden id alıyoruz
-  const supabase = createClient(); // Supabase istemcisini oluştur
+  const supabase = createClient();
 
   useEffect(() => {
-    if (id) fetchPost();
-  }, [id]);
+    // Sayfa yüklendiğinde herhangi bir işlem yapmak gerekirse burada yazılabilir
+  }, []);
 
-  const fetchPost = async () => {
-    const { data, error } = await supabase
-      .from("posts") // Burada "articles" yerine "posts" kullanmalısınız.
-      .select("*")
-      .eq("id", id)
-      .single();
-
-    if (error) {
-      console.error("Error fetching post:", error);
-    } else {
-      setPost(data);
-    }
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen); // Sidebar açılma/kapanma durumunu değiştir
   };
 
-  if (!post) return <div>Loading...</div>;
-
   return (
-    <div className="post-page">
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
-      <div className="post-info">
-        <span>Likes: {post.likes} • Comments: {post.comments}</span>
+    <div className="layout">
+      {/* Sidebar */}
+      <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+        <ul>
+          <li><a href="/">For you</a></li>
+          <li><a href="/">Following</a></li>
+          <li><a href="/">Gaming</a></li>
+          <li><a href="/">Docker</a></li>
+          <li><a href="/">AWS</a></li>
+        </ul>
+        <div className="profile-menu">
+          <span onClick={toggleSidebar}>Profile ▼</span>
+          <ul>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/library">Library</a></li>
+            <li><a href="/stories">Stories</a></li>
+            <li><a href="/stats">Stats</a></li>
+            <li><a href="/logout">Sign out</a></li>
+          </ul>
+        </div>
       </div>
-      {children}
+
+      {/* Ana İçerik */}
+      <div className="content">
+        {children} {/* Sayfa içeriği */}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,125 @@
+/* Genel sayfa ayarları */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar menüsü */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.sidebar ul li a:hover {
+  color: #1a73e8;
+}
+
+/* Sidebar açılır menü */
+.sidebar .profile-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.sidebar .profile-menu ul {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 220px;
+}
+
+.sidebar .profile-menu:hover ul {
+  display: block;
+}
+
+.sidebar .profile-menu ul li {
+  padding: 10px;
+}
+
+.sidebar .profile-menu ul li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Ana içerik alanı */
+.post-page {
+  margin-left: 270px; /* Sidebar genişliğine göre içerik sola kaydırılıyor */
+  padding: 40px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.post-page h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.post-page p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #666;
+}
+
+/* Post Bilgi Alanı (likes, comments vs.) */
+.post-info {
+  font-size: 1rem;
+  color: #999;
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.post-info span {
+  display: inline-block;
+}
+
+/* Sayfanın responsive hali */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    box-shadow: none;
+  }
+
+  .post-page {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .post-page h1 {
+    font-size: 2rem;
+  }
+
+  .post-page p {
+    font-size: 1rem;
+  }
+}
