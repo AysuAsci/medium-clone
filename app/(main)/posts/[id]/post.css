@@ -1,125 +1,78 @@
-/* Genel sayfa ayarları */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f9f9f9;
-  margin: 0;
-  padding: 0;
+.login-form {
+  max-width: 400px; /* Formun maksimum genişliği */
+  margin: 0 auto; /* Ortala */
+  padding: 20px; /* İç boşluk */
+  background-color: #fff; /* Beyaz arka plan */
+  border-radius: 8px; /* Kenar yuvarlama */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
 }
 
-/* Sidebar menüsü */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 250px;
-  background-color: #fff;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+.login-form h1 {
+  text-align: center; /* Başlığı ortala */
+  margin-bottom: 20px; /* Alt boşluk */
 }
 
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
+.label {
+  font-size: 14px; /* Etiket boyutu */
+  margin-bottom: 8px; /* Alt boşluk */
+  display: block; /* Etiketleri blok olarak göster */
 }
 
-.sidebar ul li {
-  margin-bottom: 15px;
+.input-field {
+  width: 100%; /* Genişliği %100 yap */
+  padding: 12px; /* İç boşluk */
+  margin-bottom: 20px; /* Alt boşluk */
+  border: 1px solid #d1d1d1; /* Kenar rengi */
+  border-radius: 4px; /* Kenar yuvarlama */
+  font-size: 16px; /* Yazı boyutu */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* İç gölge */
 }
 
-.sidebar ul li a {
-  color: #333;
-  text-decoration: none;
-  font-size: 1.1rem;
+.input-field:focus {
+  border-color: #000; /* Fokusta kenar rengi */
+  outline: none; /* Kenar çizgisi yok */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Dış gölge */
 }
 
-.sidebar ul li a:hover {
-  color: #1a73e8;
-}
-
-/* Sidebar açılır menü */
-.sidebar .profile-menu {
-  position: relative;
-  cursor: pointer;
-}
-
-.sidebar .profile-menu ul {
-  display: none;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 220px;
-}
-
-.sidebar .profile-menu:hover ul {
-  display: block;
-}
-
-.sidebar .profile-menu ul li {
-  padding: 10px;
-}
-
-.sidebar .profile-menu ul li:hover {
-  background-color: #f1f1f1;
-}
-
-/* Ana içerik alanı */
-.post-page {
-  margin-left: 270px; /* Sidebar genişliğine göre içerik sola kaydırılıyor */
-  padding: 40px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.post-page h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.post-page p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  color: #666;
-}
-
-/* Post Bilgi Alanı (likes, comments vs.) */
-.post-info {
-  font-size: 1rem;
-  color: #999;
+.provider-button {
   display: flex;
-  gap: 15px;
-  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #d1d1d1;
+  border-radius: 50px;
+  background-color: #000; /* Siyah arka plan */
+  color: #fff; /* Beyaz yazı rengi */
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.post-info span {
-  display: inline-block;
+.provider-button:hover {
+  background-color: #333; /* Hover durumunda arka plan rengi */
 }
 
-/* Sayfanın responsive hali */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    box-shadow: none;
-  }
+.toggle-account {
+  text-align: center; /* Ortala */
+  margin-top: 10px; /* Üst boşluk */
+}
 
-  .post-page {
-    margin-left: 0;
-    padding: 20px;
-  }
+.create-account-button {
+  background: none; /* Arka plan yok */
+  border: none; /* Kenar yok */
+  color: #007bff; /* Mavi yazı rengi */
+  cursor: pointer; /* İmleç işareti */
+}
 
-  .post-page h1 {
-    font-size: 2rem;
-  }
+.create-account-button:hover {
+  text-decoration: underline; /* Üzerine gelindiğinde altını çiz */
+}
 
-  .post-page p {
-    font-size: 1rem;
-  }
+.error-message {
+  color: red; /* Hata mesajı rengi */
+  margin-top: 10px; /* Üst boşluk */
+  text-align: center; /* Ortala */
 }

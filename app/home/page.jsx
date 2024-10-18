@@ -3,7 +3,6 @@ import './home.css'; // Stil dosyası
 
 export default function HomePage() {
   const handleGetStarted = () => {
-    // Get Started butonuna tıklayınca login sayfasına yönlendirme
     window.location.href = '/auth-login';
   };
 
@@ -27,6 +26,9 @@ export default function HomePage() {
         <p>A place to read, write, and deepen your understanding</p>
         <button className="start-reading-button" onClick={handleGetStarted}>Start reading</button>
       </main>
+
+      
+      <img src="/images/4_SdjkdS98aKH76I8eD0_qjw.webp" alt="Human Stories and Ideas" className="right-image" />
 
       <footer className="footer">
         <ul>

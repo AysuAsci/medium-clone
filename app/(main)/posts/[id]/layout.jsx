@@ -8,10 +8,10 @@ const supabase = createClient();
 
 export default function PostLayout({ children }) {
   const [post, setPost] = useState(null);
-  const { id } = useParams(); 
+  const { id } = useParams(); // URL'den id parametresini al
 
   useEffect(() => {
-    if (id) fetchPost(); 
+    if (id) fetchPost(); // Eğer id mevcutsa postu getir
   }, [id]);
 
   const fetchPost = async () => {
@@ -19,7 +19,7 @@ export default function PostLayout({ children }) {
       .from("posts")
       .select("*")
       .eq("id", id)
-      .single();
+      .single(); // Belirtilen id'ye göre postu getir
 
     if (error) {
       console.error("Error fetching post:", error);

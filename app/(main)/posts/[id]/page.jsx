@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import { createClient } from "@/utils/supabase/client"; 
-import { useRouter } from "next/navigation"; 
-import "./home.css"; // Ana sayfa için CSS
+import { createClient } from "@/utils/supabase/client";
+import { useRouter } from "next/navigation";
+import "./Home.css"; // Ana sayfa için CSS
 
-const supabase = createClient(); 
+const supabase = createClient(); // Supabase istemcisini oluştur
 
 export default function HomePage() {
   const [posts, setPosts] = useState([]); // Postları tutan state
@@ -17,7 +17,7 @@ export default function HomePage() {
   const fetchPosts = async () => {
     const { data, error } = await supabase
       .from("posts")
-      .select("*");
+      .select("*"); // Tüm postları getir
 
     if (error) {
       console.error("Error fetching posts:", error);
@@ -27,7 +27,7 @@ export default function HomePage() {
   };
 
   const handlePostClick = (id) => {
-    router.push(`/posts/${id}`); // Posta tıklandığında post sayfasına git
+    router.push(`/posts/${id}`); // Posta tıklandığında post detay sayfasına yönlendir
   };
 
   return (
@@ -50,10 +50,14 @@ export default function HomePage() {
         <aside className="sidebar">+ Write</aside>
         <main className="posts">
           {posts.map((post) => (
-            <div key={post.id} className="post-card" onClick={() => handlePostClick(post.id)}>
+            <div
+              key={post.id}
+              className="post-card"
+              onClick={() => handlePostClick(post.id)}
+            >
               <h2>{post.title}</h2>
               <p>{post.content.slice(0, 100)}...</p>
-              <span>{post.created_at}</span>
+              <span>{new Date(post.created_at).toLocaleDateString()}</span>
               <div className="post-stats">
                 <span>{post.likes || 0} Likes</span>
                 <span>{post.comments || 0} Comments</span>

@@ -1,13 +1,14 @@
-'use client';
+"use client";
 
 import { useState } from 'react';
 import { login, signup } from './action';
+import { useRouter } from 'next/navigation'; // Yönlendirme için useRouter'i ekle
 import './auth-login.css'; 
-
 
 export default function LoginPage() {
   const [errorMessage, setErrorMessage] = useState('');
   const [isSignUp, setIsSignUp] = useState(false); // Kayıt olma durumunu takip et
+  const router = useRouter(); // useRouter'i çağır
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -33,6 +34,10 @@ export default function LoginPage() {
     setIsSignUp(!isSignUp); // Kayıt olma formunu aç/kapat
   };
 
+  const handleEmailSignIn = () => {
+    router.push('/email-signin'); // Email ile giriş sayfasına yönlendir
+  };
+
   return (
     <div className="login-container">
       {isSignUp ? (
@@ -47,7 +52,7 @@ export default function LoginPage() {
             <label htmlFor="password">Password:</label>
             <input id="password" name="password" type="password" required />
 
-            <button type="submit" name="signup">Sign up</button>
+            <button type="submit" name="signup" className="provider-button">Sign up</button>
             <p>
               Already have an account? <button type="button" onClick={toggleSignUp} className="create-account-button">Sign in</button>
             </p>
@@ -59,21 +64,21 @@ export default function LoginPage() {
           <button className="provider-button">Sign in with Google</button>
           <button className="provider-button">Sign in with Facebook</button>
           <button className="provider-button">Sign in with Apple</button>
-          <button className="provider-button">Sign in with X</button>
-          
-          <form onSubmit={handleSubmit}>
+          <button className="provider-button" onClick={handleEmailSignIn}>Sign in with Email</button> {/* Yönlendirme butonu */}
+          <div className="login-form">
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="email">Email:</label>
+              <input id="email" name="email" type="email" required className="input-field" />
 
-            <label htmlFor="email">Email:</label>
-            <input id="email" name="email" type="email" required />
+              <label htmlFor="password">Password:</label>
+              <input id="password" name="password" type="password" required className="input-field" />
 
-            <label htmlFor="password">Password:</label>
-            <input id="password" name="password" type="password" required />
-
-            <button type="submit" name="login">Log in</button>
-            <p>
-              No account? <button type="button" onClick={toggleSignUp} className="create-account-button">Create one</button>
-            </p>
-          </form>
+              <button type="submit" name="login" className="provider-button">Log in</button>
+              <p className="toggle-account">
+                No account? <button type="button" onClick={toggleSignUp} className="create-account-button">Create one</button>
+              </p>
+            </form>
+          </div>
         </>
       )}
       {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Hata mesajını göster */}
